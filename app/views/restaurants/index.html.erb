@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurants</h1>
+
+<div class="cards">
+  <% @restaurants.each do |restaurant| %>
+    <div onClick='window.location.href="<%= restaurant_path(restaurant) %>"' class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <h1><%= restaurant.name %></h1>
+      <div class="card-details">
+        <p><%= link_to "Show", restaurant, class: "links" %></p>
+        <p><%= link_to "Edit", edit_restaurant_path(restaurant), class: "links" %></p>
+        <p><%= link_to "Destroy", restaurant, method: :delete, data: { confirm: "Are you sure?" }, class: "links" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New Restaurant", new_restaurant_path %>
